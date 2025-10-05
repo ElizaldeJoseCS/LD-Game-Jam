@@ -29,6 +29,10 @@ public class AIChase : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         touching = true;
-        Debug.Log("Touching");
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        touching = false;
     }
 }

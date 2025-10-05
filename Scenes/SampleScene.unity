@@ -390,7 +390,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -432,7 +432,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &819021413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -519,7 +519,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   player: {fileID: 1059349233}
-  speed: 1
+  speed: 2
+  chaseRange: 8
+  touching: 0
 --- !u!1 &1059349233
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d76c6ed590da0e4c9f0eca4cdbc9589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  moveSpeed: 5
+  speed: 6
+  rb: {fileID: 1059349235}
 --- !u!50 &1059349235
 Rigidbody2D:
   serializedVersion: 5
@@ -684,7 +687,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

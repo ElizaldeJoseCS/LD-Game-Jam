@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
-    int jumps = 0;
     float movementX;
     float movementY;
     [SerializeField] float speed = 6;
