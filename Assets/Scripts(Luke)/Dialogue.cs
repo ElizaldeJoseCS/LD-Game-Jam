@@ -73,7 +73,7 @@ public class Dialogue : MonoBehaviour
         if (index >= dialogueLines.Length) return;
 
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.fKey.wasPressedThisFrame)
         {
 
             if (isTyping)
