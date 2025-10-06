@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AIChase : MonoBehaviour
 {
@@ -75,9 +76,16 @@ public class AIChase : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
         knockback = true;
         Debug.Log("Enemy Health: " + health);
     }
+    void Die()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("Act 3");
+
+    }
+
 }
