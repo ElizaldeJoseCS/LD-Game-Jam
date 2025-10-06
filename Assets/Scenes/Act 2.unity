@@ -189,7 +189,11 @@ Transform:
   m_GameObject: {fileID: 164697815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -10.47, y: 7, z: -9}
+=======
+  m_LocalPosition: {x: -25.06, y: 7.74, z: -9}
+>>>>>>> 028ca7048fef239a8c2f8af9546edcadaf7a8e10
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -434,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   damage: 1
+<<<<<<< HEAD
 --- !u!1 &436764063
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +613,8 @@ PolygonCollider2D:
       - {x: 0.29296875, y: 0.90234375}
       - {x: 0.15234375, y: 0.97265625}
   m_UseDelaunayMesh: 0
+=======
+>>>>>>> 028ca7048fef239a8c2f8af9546edcadaf7a8e10
 --- !u!1 &483964710
 GameObject:
   m_ObjectHideFlags: 0
@@ -15072,7 +15079,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -10.47, y: 7, z: -9}
+=======
+  m_LocalPosition: {x: -25.06, y: 7.74, z: -9}
+>>>>>>> 028ca7048fef239a8c2f8af9546edcadaf7a8e10
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15827,7 +15838,11 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
+<<<<<<< HEAD
   m_SortingOrder: 2
+=======
+  m_SortingOrder: 10
+>>>>>>> 028ca7048fef239a8c2f8af9546edcadaf7a8e10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -15879,10 +15894,16 @@ MonoBehaviour:
   attackCooldownTimer: 1
   minDistAway: 2.5
   touching: 0
+<<<<<<< HEAD
   Aim: {fileID: 1213490142}
   knockbackForce: 40
   knockbackDuration: 0.1
   knockbackCooldownDuration: 1
+=======
+  knockbackForce: 5
+  knockbackDuration: 0.2
+  knockbackCooldownDuration: 0.5
+>>>>>>> 028ca7048fef239a8c2f8af9546edcadaf7a8e10
 --- !u!1 &1059349233
 GameObject:
   m_ObjectHideFlags: 0
@@ -16021,7 +16042,11 @@ Transform:
   m_GameObject: {fileID: 1059349233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -10.47, y: 7, z: 1}
+=======
+  m_LocalPosition: {x: -25.06, y: 7.74, z: 1}
+>>>>>>> 028ca7048fef239a8c2f8af9546edcadaf7a8e10
   m_LocalScale: {x: 0.6625, y: 0.7625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16193,7 +16218,7 @@ GameObject:
   - component: {fileID: 1448559871}
   - component: {fileID: 1448559870}
   m_Layer: 0
-  m_Name: Square
+  m_Name: projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16245,7 +16270,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.25752437, g: 0.8490566, b: 0.19624422, a: 1}
   m_FlipX: 0
