@@ -84,7 +84,21 @@ public class AIChase : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        SceneManager.LoadScene("Act 3");
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Act 1")
+        {
+
+            SceneManager.LoadScene("Act 2");
+        }
+        if (currentScene.name == "Act 2")
+        {
+            SceneManager.LoadScene("Act 3");
+        }
+         if (currentScene.name == "Act 3")
+        {
+            SceneManager.LoadScene("Final");
+        }
+
 
     }
 
