@@ -18,14 +18,21 @@ public class Dialogue : MonoBehaviour
     public DialogueLine[] dialogueLines;
     public float textSpeed;
 
-
-
+    public Attack attack;
+    public AIChase movement;
 
     private int index = 0;
     private bool isTyping = false;
 
     void Start()
     {
+        if (attack != null)
+            attack.enabled = false;
+
+        if (movement != null)
+            movement.enabled = false;
+
+
         textComponent.text = string.Empty;
         StartDialogue();
     }
@@ -93,7 +100,18 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false); // Hide panel when done
+            EndDialogue();
         }
     }
+    void EndDialogue()
+    {
+        if (attack != null)
+            attack.enabled = true;
+
+        if (movement != null)
+            movement.enabled = true;
+
+        gameObject.SetActive(false); // Hide panel when done
+    }
 }
+

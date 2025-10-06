@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AIChase : MonoBehaviour
 {
@@ -34,5 +35,26 @@ public class AIChase : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         touching = false;
+<<<<<<< Updated upstream
+=======
+        rb.linearVelocity = Vector2.zero;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+        knockback = true;
+        Debug.Log("Enemy Health: " + health);
+>>>>>>> Stashed changes
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene("Act 3");
     }
 }
