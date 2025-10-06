@@ -10,6 +10,13 @@ public class player : MonoBehaviour
     public float dashDuration = 0.2f;
     public float dashCooldownDuration = 1f;
     private bool dashCooldownStart = false;
+    public float health = 3.0f;
+    private bool knockback = false;
+    public float knockbackDuration = 0.2f;
+    public float knockbackForce = 6f;
+    private Vector2 direction;
+
+    [SerializeField] GameObject enemy;
 
 
     [SerializeField] Rigidbody2D rb;
@@ -63,6 +70,7 @@ public class player : MonoBehaviour
 
     void OnJump(InputValue value)
     {
+        Debug.Log(health);
         // can't already be dashing and must be moving to dash
         if (!isDashing)
         {
@@ -76,9 +84,25 @@ public class player : MonoBehaviour
         float XmoveDistance = movementX * speed * Time.fixedDeltaTime;
         float YmoveDistance = movementY * speed * Time.fixedDeltaTime;
 
-        transform.position = new Vector2(transform.position.x + XmoveDistance, transform.position.y + YmoveDistance);
+        if (!knockback)
+        {
+            transform.position = new Vector2(transform.position.x + XmoveDistance, transform.position.y + YmoveDistance);
+        }
+        else 
+        {
+            knockbackDuration -= Time.deltaTime;
+            direction = transform.position - enemy.transform.position;
+            direction.Normalize();
+            transform.position = new Vector2(transform.position.x + direction.x * knockbackForce * Time.deltaTime, transform.position.y + direction.y * knockbackForce * Time.deltaTime);
+            if (knockbackDuration <= 0f)
+            { 
+                knockback = false;
+                rb.linearVelocity = Vector2.zero;
+                knockbackDuration = 0.2f;
+            }
+        }
 
-        Vector3 vector3 = Vector3.left * movementX + Vector3.down * movementY;
+            Vector3 vector3 = Vector3.left * movementX + Vector3.down * movementY;
 
         if (movementX == 0 && movementY == 0)
         {
@@ -111,5 +135,15 @@ public class player : MonoBehaviour
 
         lastDirection = new Vector2(vector3.x, vector3.y);
         Aim.rotation = Quaternion.LookRotation(Vector3.forward, vector3);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        knockback = true;
     }
 }
