@@ -2,43 +2,27 @@ using UnityEngine;
 
 public class AIChase : MonoBehaviour
 {
-
-    public GameObject Indicator;
-    public GameObject Melee;
     public GameObject player;
     [SerializeField] Rigidbody2D rb;
     public float speed;
-    public float chaseRange = 15.0f;
-    public float attackRange = 3.0f;
-    public float attackBuildup = 0.5f;
-    public float attackDuration = 0.2f;
-    public float attackCooldownTimer = 1.0f;
-    private float attackTime;
-    private bool windingUp = false;
-    public float minDistAway = 2.5f;
+    public float chaseRange = 5.0f;
 
     private float distance;
     public bool touching = false;
-    private bool attacking = false;
-    private bool attackOnCooldown = false;
-
-    public Transform Aim;
 
     float health, maxHealth = 15f;
     private bool knockback = false;
-    public float knockbackForce = 15f;
+    public float knockbackForce = 5f;
     public float knockbackDuration = 0.2f;
     private float knockbackTimeRemaining = 0f;
-    public float knockbackCooldownDuration = 1f;
+    public float knockbackCooldownDuration = 0.5f;
     private bool knockbackCooldownStart = false;
-    private Vector2 direction = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         health = maxHealth;
         knockbackTimeRemaining = knockbackDuration;
-        attackTime = attackBuildup + attackDuration;
     }
 
     // Update is called once per frame
@@ -69,54 +53,9 @@ public class AIChase : MonoBehaviour
 
         distance = Vector2.Distance(transform.position, player.transform.position);
 
-        // if we are (in range or are already attacking) and not on cooldown
-        if ((distance < attackRange || attacking) && !attackOnCooldown)
-        {
-            attacking = true;
-            if (attackTime <= attackDuration)
-            {
-                Indicator.SetActive(false);
-                if (attackTime <= 0)
-                {
-                    Melee.SetActive(false);
-                    attacking = false;
-                    attackOnCooldown = true;
-                    attackTime = attackBuildup + attackDuration;
-                    Melee.GetComponent<EnemyWeapon>().ResetDamage();
-                }
-                else
-                {
-                    Melee.SetActive(true);
-                    attackTime -= Time.deltaTime;
-                }
-            }
-            else
-            {
-                attackTime -= Time.deltaTime;
-                Indicator.SetActive(true);
-            }
-        }
-        else if (attackOnCooldown)
-        {
-            attackCooldownTimer -= Time.deltaTime;
-            if (attackCooldownTimer <= 0f)
-            {
-                attackOnCooldown = false;
-                attackCooldownTimer = 1.0f; // reset cooldown
-            }
-        }
-
-        if (distance < chaseRange && distance > minDistAway && !attacking)
+        if (distance < chaseRange && !touching)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-        }
-
-        direction = player.transform.position - transform.position;
-        direction = new Vector2(direction.y, -direction.x);
-
-        if (!attacking)
-        {
-            Aim.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         }
     }
 
@@ -140,10 +79,5 @@ public class AIChase : MonoBehaviour
         }
         knockback = true;
         Debug.Log("Enemy Health: " + health);
-    }
-
-    public Vector2 getDirection()
-    {
-        return direction;
     }
 }
