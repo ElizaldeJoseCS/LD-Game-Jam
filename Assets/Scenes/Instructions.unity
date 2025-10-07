@@ -458,9 +458,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\t\tMovement: WASD\n\t\tDash: Shift\n\t\tAttack:Space\n\nIn Jaws of Debt,
-    you play as an employee of a loan shark, forced to collect payments around the
-    city to settle your own debts."
+  m_text: "\t\tMovement: WASD\n\t\tDash: Shift\n\t\tAttack: Space\n\nIn Jaws of Debt,
+    you play as a loan shark, running about the city to collect payments from indebted
+    clients."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
